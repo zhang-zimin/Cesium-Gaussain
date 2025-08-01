@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
   resolve: {
@@ -16,7 +17,17 @@ export default defineConfig({
   server: {
     open: true,
   },
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: "node_modules/cesium/Build/Cesium",
+          dest: "",
+        },
+      ],
+    }),
+  ],
   define: {
-    CESIUM_BASE_URL: JSON.stringify("/cesium"),
+    CESIUM_BASE_URL: JSON.stringify("/Cesium"),
   },
 });

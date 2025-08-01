@@ -1,7 +1,7 @@
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import { Viewer, Cesium3DTileset, Resource } from "cesium";
 
-window.CESIUM_BASE_URL = "/node_modules/cesium/Build/Cesium/";
+window.CESIUM_BASE_URL = "/Cesium/";
 
 const viewer = new Viewer("cesiumContainer");
 
