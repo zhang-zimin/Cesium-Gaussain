@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Vite build output
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Cesium build artifacts (if any)
+Cesium/Build/
+
+# IDE files
+.vscode/
+.idea/
