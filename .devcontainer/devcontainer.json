@@ -1,0 +1,22 @@
+{
+  "name": "Cesium-Gaussain Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "runArgs": ["--add-host=host.docker.internal:host-gateway"],
+  "forwardPorts": [5173, 9000],
+  "postCreateCommand": "npm install",
+  "postStartCommand": "npm run dev -- --host 0.0.0.0",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
