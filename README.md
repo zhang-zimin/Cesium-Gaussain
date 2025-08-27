@@ -61,4 +61,27 @@ http://localhost:9000/tileset/Productin_20/Production_20/tileset.json
      - 如果从宿主机访问 tileset（在容器内请求宿主机服务），请确保 tileset URL 使用 `host.docker.internal`，例如：
        `http://host.docker.internal:9000/tileset/Productin_20/Production_20/tileset.json`
 
+## 使用 Docker 本地构建与运行
+
+如果你想把项目打包为 Docker 镜像并在本地运行，请按下面步骤操作（Windows PowerShell）:
+
+1. 在项目根目录构建镜像：
+
+   ```powershell
+   docker build -t cesium-gaussain:latest .
+   ```
+
+2. 以容器运行并将 nginx 端口映射到宿主机（示例映射到 5173）：
+
+   ```powershell
+   docker run -d --name cesium-app -p 5173:80 cesium-gaussain:latest
+   ```
+
+   浏览器访问：http://localhost:5173
+
+注意事项
+
+- Dockerfile 已将 Cesium 的静态资源复制到 `/Cesium`，保持 `window.CESIUM_BASE_URL = "/Cesium/"` 即可正确加载。 
+- 如果构建失败，请在宿主机上先能成功运行 `npm run build`，或查看构建日志定位问题。
+
 
